@@ -17,16 +17,16 @@
     </DbDiagramOptions>
     <Options xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="PageOptions">
       <TopLeftMargins>
-        <Width>10 mm</Width>
-        <Height>10 mm</Height>
+        <Width>39.3700787401575 in/100</Width>
+        <Height>39.3700787401575 in/100</Height>
       </TopLeftMargins>
       <BottomRightMargins>
-        <Width>10 mm</Width>
-        <Height>10 mm</Height>
+        <Width>39.3700787401575 in/100</Width>
+        <Height>39.3700787401575 in/100</Height>
       </BottomRightMargins>
       <PaperSize>
-        <Width>210 mm</Width>
-        <Height>297 mm</Height>
+        <Width>827 in/100</Width>
+        <Height>1169 in/100</Height>
       </PaperSize>
     </Options>
     <Options xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="PrintOptions" />
@@ -54,15 +54,15 @@
               <Parent>0</Parent>
             </CustomProperties>
             <Location>
-              <X>500 px</X>
-              <Y>-430 px</Y>
+              <X>60 px</X>
+              <Y>0 px</Y>
             </Location>
             <Size>
-              <Width>168 px</Width>
-              <Height>161 px</Height>
+              <Width>205 px</Width>
+              <Height>178 px</Height>
             </Size>
             <DbOid>
-              <Path>brakingpoint.availablebets</Path>
+              <Path>brakingpoint.available_bets</Path>
               <TypeName>Table</TypeName>
             </DbOid>
             <Compartments>
@@ -77,11 +77,11 @@
               <Parent>0</Parent>
             </CustomProperties>
             <Location>
-              <X>0 px</X>
-              <Y>-1000 px</Y>
+              <X>-940 px</X>
+              <Y>40 px</Y>
             </Location>
             <Size>
-              <Width>176 px</Width>
+              <Width>190 px</Width>
               <Height>144 px</Height>
             </Size>
             <DbOid>
@@ -100,54 +100,8 @@
               <Parent>0</Parent>
             </CustomProperties>
             <Location>
-              <X>-500 px</X>
-              <Y>-430 px</Y>
-            </Location>
-            <Size>
-              <Width>186 px</Width>
-              <Height>212 px</Height>
-            </Size>
-            <DbOid>
-              <Path>brakingpoint.news</Path>
-              <TypeName>Table</TypeName>
-            </DbOid>
-            <Compartments>
-              <ConstraintsCollapsed>True</ConstraintsCollapsed>
-              <IndexesCollapsed>True</IndexesCollapsed>
-              <TriggersCollapsed>True</TriggersCollapsed>
-            </Compartments>
-          </Model>
-          <Model xsi:type="TableModel">
-            <CustomProperties>
-              <OID>4</OID>
-              <Parent>0</Parent>
-            </CustomProperties>
-            <Location>
-              <X>-500 px</X>
-              <Y>160 px</Y>
-            </Location>
-            <Size>
-              <Width>233 px</Width>
-              <Height>144 px</Height>
-            </Size>
-            <DbOid>
-              <Path>brakingpoint.profiles</Path>
-              <TypeName>Table</TypeName>
-            </DbOid>
-            <Compartments>
-              <ConstraintsCollapsed>True</ConstraintsCollapsed>
-              <IndexesCollapsed>True</IndexesCollapsed>
-              <TriggersCollapsed>True</TriggersCollapsed>
-            </Compartments>
-          </Model>
-          <Model xsi:type="TableModel">
-            <CustomProperties>
-              <OID>5</OID>
-              <Parent>0</Parent>
-            </CustomProperties>
-            <Location>
-              <X>0 px</X>
-              <Y>-420 px</Y>
+              <X>-370 px</X>
+              <Y>30 px</Y>
             </Location>
             <Size>
               <Width>176 px</Width>
@@ -163,14 +117,93 @@
               <TriggersCollapsed>True</TriggersCollapsed>
             </Compartments>
           </Model>
+          <Model xsi:type="RelationLinkModel">
+            <CustomProperties>
+              <OID>4</OID>
+              <Comment>5</Comment>
+              <OutModel>1</OutModel>
+              <InModel>3</InModel>
+              <OutPort>6</OutPort>
+              <InPort>7</InPort>
+              <Parent>0</Parent>
+            </CustomProperties>
+            <PortAnchors>
+              <Port>
+                <Location>
+                  <X>0 px</X>
+                  <Y>139 px</Y>
+                </Location>
+                <Anchors>Top Bottom</Anchors>
+                <Align>Left</Align>
+                <CustomProperties>
+                  <OID>6</OID>
+                  <PortType>FloatAnchor</PortType>
+                </CustomProperties>
+              </Port>
+              <Port>
+                <Location>
+                  <X>0 px</X>
+                  <Y>39 px</Y>
+                </Location>
+                <Anchors>Top Bottom</Anchors>
+                <Align>Right</Align>
+                <CustomProperties>
+                  <OID>7</OID>
+                  <PortType>FloatAnchor</PortType>
+                </CustomProperties>
+              </Port>
+            </PortAnchors>
+            <BendPoints>
+              <PointD>
+                <X>-10 px</X>
+                <Y>139 px</Y>
+              </PointD>
+              <PointD>
+                <X>-10 px</X>
+                <Y>69 px</Y>
+              </PointD>
+            </BendPoints>
+            <IsManuallyRouted>false</IsManuallyRouted>
+            <DbOid>
+              <Path>brakingpoint.available_bets.FK_sport_available_bets</Path>
+              <TypeName>ForeignKey</TypeName>
+            </DbOid>
+          </Model>
+          <Model xsi:type="RelationCommentModel">
+            <CustomProperties>
+              <OID>5</OID>
+              <HolderModel>4</HolderModel>
+              <Port>8</Port>
+              <Parent>0</Parent>
+            </CustomProperties>
+            <PortAnchors>
+              <Port xsi:type="LinkPort">
+                <Location>
+                  <X>162 px</X>
+                  <Y>70 px</Y>
+                </Location>
+                <Anchors>None</Anchors>
+                <Align>Left</Align>
+                <CustomProperties>
+                  <OID>8</OID>
+                  <PortType>FixedAnchor</PortType>
+                </CustomProperties>
+                <LinkPortAnchor>OutPoint</LinkPortAnchor>
+              </Port>
+            </PortAnchors>
+            <CommentOffset>
+              <X>63.8694000244141 px</X>
+              <Y>-25 px</Y>
+            </CommentOffset>
+          </Model>
           <Model xsi:type="TableModel">
             <CustomProperties>
-              <OID>6</OID>
+              <OID>9</OID>
               <Parent>0</Parent>
             </CustomProperties>
             <Location>
-              <X>0 px</X>
-              <Y>-700 px</Y>
+              <X>-640 px</X>
+              <Y>20 px</Y>
             </Location>
             <Size>
               <Width>176 px</Width>
@@ -186,21 +219,179 @@
               <TriggersCollapsed>True</TriggersCollapsed>
             </Compartments>
           </Model>
+          <Model xsi:type="RelationLinkModel">
+            <CustomProperties>
+              <OID>10</OID>
+              <Comment>11</Comment>
+              <OutModel>9</OutModel>
+              <InModel>3</InModel>
+              <OutPort>12</OutPort>
+              <InPort>13</InPort>
+              <Parent>0</Parent>
+            </CustomProperties>
+            <PortAnchors>
+              <Port>
+                <Location>
+                  <X>0 px</X>
+                  <Y>82.5 px</Y>
+                </Location>
+                <Anchors>Top Bottom</Anchors>
+                <Align>Right</Align>
+                <CustomProperties>
+                  <OID>12</OID>
+                  <PortType>FloatAnchor</PortType>
+                </CustomProperties>
+              </Port>
+              <Port>
+                <Location>
+                  <X>0 px</X>
+                  <Y>82.5 px</Y>
+                </Location>
+                <Anchors>Top Bottom</Anchors>
+                <Align>Left</Align>
+                <CustomProperties>
+                  <OID>13</OID>
+                  <PortType>FloatAnchor</PortType>
+                </CustomProperties>
+              </Port>
+            </PortAnchors>
+            <BendPoints>
+              <PointD>
+                <X>-444 px</X>
+                <Y>102.5 px</Y>
+              </PointD>
+              <PointD>
+                <X>-444 px</X>
+                <Y>112.5 px</Y>
+              </PointD>
+            </BendPoints>
+            <IsManuallyRouted>false</IsManuallyRouted>
+            <DbOid>
+              <Path>brakingpoint.teams.FK_sport_team</Path>
+              <TypeName>ForeignKey</TypeName>
+            </DbOid>
+          </Model>
+          <Model xsi:type="RelationCommentModel">
+            <CustomProperties>
+              <OID>11</OID>
+              <HolderModel>10</HolderModel>
+              <Port>14</Port>
+              <Parent>0</Parent>
+            </CustomProperties>
+            <PortAnchors>
+              <Port xsi:type="LinkPort">
+                <Location>
+                  <X>-57 px</X>
+                  <Y>-10 px</Y>
+                </Location>
+                <Anchors>None</Anchors>
+                <Align>Right</Align>
+                <CustomProperties>
+                  <OID>14</OID>
+                  <PortType>FixedAnchor</PortType>
+                </CustomProperties>
+                <LinkPortAnchor>OutPoint</LinkPortAnchor>
+              </Port>
+            </PortAnchors>
+            <CommentOffset>
+              <X>22 px</X>
+              <Y>2 px</Y>
+            </CommentOffset>
+          </Model>
+          <Model xsi:type="RelationLinkModel">
+            <CustomProperties>
+              <OID>15</OID>
+              <Comment>16</Comment>
+              <OutModel>2</OutModel>
+              <InModel>9</InModel>
+              <OutPort>17</OutPort>
+              <InPort>18</InPort>
+              <Parent>0</Parent>
+            </CustomProperties>
+            <PortAnchors>
+              <Port>
+                <Location>
+                  <X>0 px</X>
+                  <Y>67 px</Y>
+                </Location>
+                <Anchors>Top Bottom</Anchors>
+                <Align>Right</Align>
+                <CustomProperties>
+                  <OID>17</OID>
+                  <PortType>FloatAnchor</PortType>
+                </CustomProperties>
+              </Port>
+              <Port>
+                <Location>
+                  <X>0 px</X>
+                  <Y>77 px</Y>
+                </Location>
+                <Anchors>Top Bottom</Anchors>
+                <Align>Left</Align>
+                <CustomProperties>
+                  <OID>18</OID>
+                  <PortType>FloatAnchor</PortType>
+                </CustomProperties>
+              </Port>
+            </PortAnchors>
+            <BendPoints>
+              <PointD>
+                <X>-730 px</X>
+                <Y>107 px</Y>
+              </PointD>
+              <PointD>
+                <X>-730 px</X>
+                <Y>97 px</Y>
+              </PointD>
+            </BendPoints>
+            <IsManuallyRouted>false</IsManuallyRouted>
+            <DbOid>
+              <Path>brakingpoint.competitors.FK_team_competitor</Path>
+              <TypeName>ForeignKey</TypeName>
+            </DbOid>
+          </Model>
+          <Model xsi:type="RelationCommentModel">
+            <CustomProperties>
+              <OID>16</OID>
+              <HolderModel>15</HolderModel>
+              <Port>19</Port>
+              <Parent>0</Parent>
+            </CustomProperties>
+            <PortAnchors>
+              <Port xsi:type="LinkPort">
+                <Location>
+                  <X>-65 px</X>
+                  <Y>10 px</Y>
+                </Location>
+                <Anchors>None</Anchors>
+                <Align>Right</Align>
+                <CustomProperties>
+                  <OID>19</OID>
+                  <PortType>FixedAnchor</PortType>
+                </CustomProperties>
+                <LinkPortAnchor>OutPoint</LinkPortAnchor>
+              </Port>
+            </PortAnchors>
+            <CommentOffset>
+              <X>-20.1215057373047 px</X>
+              <Y>62 px</Y>
+            </CommentOffset>
+          </Model>
           <Model xsi:type="TableModel">
             <CustomProperties>
-              <OID>7</OID>
+              <OID>20</OID>
               <Parent>0</Parent>
             </CustomProperties>
             <Location>
-              <X>380 px</X>
-              <Y>130 px</Y>
+              <X>80 px</X>
+              <Y>430 px</Y>
             </Location>
             <Size>
-              <Width>176 px</Width>
+              <Width>197 px</Width>
               <Height>195 px</Height>
             </Size>
             <DbOid>
-              <Path>brakingpoint.previousbets</Path>
+              <Path>brakingpoint.tickets</Path>
               <TypeName>Table</TypeName>
             </DbOid>
             <Compartments>
@@ -211,16 +402,16 @@
           </Model>
           <Model xsi:type="TableModel">
             <CustomProperties>
-              <OID>8</OID>
+              <OID>21</OID>
               <Parent>0</Parent>
             </CustomProperties>
             <Location>
-              <X>0 px</X>
-              <Y>100 px</Y>
+              <X>-400 px</X>
+              <Y>370 px</Y>
             </Location>
             <Size>
               <Width>226 px</Width>
-              <Height>229 px</Height>
+              <Height>297 px</Height>
             </Size>
             <DbOid>
               <Path>brakingpoint.users</Path>
@@ -234,12 +425,12 @@
           </Model>
           <Model xsi:type="RelationLinkModel">
             <CustomProperties>
-              <OID>9</OID>
-              <Comment>10</Comment>
-              <OutModel>7</OutModel>
-              <InModel>8</InModel>
-              <OutPort>11</OutPort>
-              <InPort>12</InPort>
+              <OID>22</OID>
+              <Comment>23</Comment>
+              <OutModel>20</OutModel>
+              <InModel>21</InModel>
+              <OutPort>24</OutPort>
+              <InPort>25</InPort>
               <Parent>0</Parent>
             </CustomProperties>
             <PortAnchors>
@@ -251,135 +442,56 @@
                 <Anchors>Top Bottom</Anchors>
                 <Align>Left</Align>
                 <CustomProperties>
-                  <OID>11</OID>
+                  <OID>24</OID>
                   <PortType>FloatAnchor</PortType>
                 </CustomProperties>
               </Port>
               <Port>
                 <Location>
                   <X>0 px</X>
-                  <Y>139 px</Y>
+                  <Y>177.5 px</Y>
                 </Location>
                 <Anchors>Top Bottom</Anchors>
                 <Align>Right</Align>
                 <CustomProperties>
-                  <OID>12</OID>
+                  <OID>25</OID>
                   <PortType>FloatAnchor</PortType>
                 </CustomProperties>
               </Port>
             </PortAnchors>
             <BendPoints>
               <PointD>
-                <X>300 px</X>
-                <Y>227.5 px</Y>
+                <X>60 px</X>
+                <Y>527.5 px</Y>
               </PointD>
               <PointD>
-                <X>300 px</X>
-                <Y>239 px</Y>
+                <X>60 px</X>
+                <Y>547.5 px</Y>
               </PointD>
             </BendPoints>
             <IsManuallyRouted>false</IsManuallyRouted>
             <DbOid>
-              <Path>brakingpoint.previousbets.previousbets_ibfk_1</Path>
+              <Path>brakingpoint.tickets.FK_user_ticket</Path>
               <TypeName>ForeignKey</TypeName>
             </DbOid>
           </Model>
           <Model xsi:type="RelationCommentModel">
             <CustomProperties>
-              <OID>10</OID>
-              <HolderModel>9</HolderModel>
-              <Port>13</Port>
+              <OID>23</OID>
+              <HolderModel>22</HolderModel>
+              <Port>26</Port>
               <Parent>0</Parent>
             </CustomProperties>
             <PortAnchors>
               <Port xsi:type="LinkPort">
                 <Location>
-                  <X>80 px</X>
-                  <Y>-5.75 px</Y>
+                  <X>137 px</X>
+                  <Y>-20 px</Y>
                 </Location>
                 <Anchors>None</Anchors>
                 <Align>Left</Align>
                 <CustomProperties>
-                  <OID>13</OID>
-                  <PortType>FixedAnchor</PortType>
-                </CustomProperties>
-                <LinkPortAnchor>OutPoint</LinkPortAnchor>
-              </Port>
-            </PortAnchors>
-            <CommentOffset>
-              <X>22 px</X>
-              <Y>2 px</Y>
-            </CommentOffset>
-          </Model>
-          <Model xsi:type="RelationLinkModel">
-            <CustomProperties>
-              <OID>14</OID>
-              <Comment>15</Comment>
-              <OutModel>4</OutModel>
-              <InModel>8</InModel>
-              <OutPort>16</OutPort>
-              <InPort>17</InPort>
-              <Parent>0</Parent>
-            </CustomProperties>
-            <PortAnchors>
-              <Port>
-                <Location>
-                  <X>0 px</X>
-                  <Y>72 px</Y>
-                </Location>
-                <Anchors>Top Bottom</Anchors>
-                <Align>Right</Align>
-                <CustomProperties>
-                  <OID>16</OID>
-                  <PortType>FloatAnchor</PortType>
-                </CustomProperties>
-              </Port>
-              <Port>
-                <Location>
-                  <X>0 px</X>
-                  <Y>142 px</Y>
-                </Location>
-                <Anchors>Top Bottom</Anchors>
-                <Align>Left</Align>
-                <CustomProperties>
-                  <OID>17</OID>
-                  <PortType>FloatAnchor</PortType>
-                </CustomProperties>
-              </Port>
-            </PortAnchors>
-            <BendPoints>
-              <PointD>
-                <X>-177 px</X>
-                <Y>232 px</Y>
-              </PointD>
-              <PointD>
-                <X>-177 px</X>
-                <Y>242 px</Y>
-              </PointD>
-            </BendPoints>
-            <IsManuallyRouted>false</IsManuallyRouted>
-            <DbOid>
-              <Path>brakingpoint.profiles.FK_profiles_users_userID</Path>
-              <TypeName>ForeignKey</TypeName>
-            </DbOid>
-          </Model>
-          <Model xsi:type="RelationCommentModel">
-            <CustomProperties>
-              <OID>15</OID>
-              <HolderModel>14</HolderModel>
-              <Port>18</Port>
-              <Parent>0</Parent>
-            </CustomProperties>
-            <PortAnchors>
-              <Port xsi:type="LinkPort">
-                <Location>
-                  <X>-178.5 px</X>
-                  <Y>-10 px</Y>
-                </Location>
-                <Anchors>None</Anchors>
-                <Align>Right</Align>
-                <CustomProperties>
-                  <OID>18</OID>
+                  <OID>26</OID>
                   <PortType>FixedAnchor</PortType>
                 </CustomProperties>
                 <LinkPortAnchor>OutPoint</LinkPortAnchor>
@@ -392,19 +504,19 @@
           </Model>
           <Model xsi:type="TableModel">
             <CustomProperties>
-              <OID>19</OID>
+              <OID>27</OID>
               <Parent>0</Parent>
             </CustomProperties>
             <Location>
-              <X>0 px</X>
-              <Y>-170 px</Y>
+              <X>-390 px</X>
+              <Y>190 px</Y>
             </Location>
             <Size>
-              <Width>231 px</Width>
+              <Width>210 px</Width>
               <Height>127 px</Height>
             </Size>
             <DbOid>
-              <Path>brakingpoint.users_sports_relationship</Path>
+              <Path>brakingpoint.connection_user_sport</Path>
               <TypeName>Table</TypeName>
             </DbOid>
             <Compartments>
@@ -415,201 +527,73 @@
           </Model>
           <Model xsi:type="RelationLinkModel">
             <CustomProperties>
-              <OID>20</OID>
-              <Comment>21</Comment>
-              <OutModel>19</OutModel>
-              <InModel>8</InModel>
-              <OutPort>22</OutPort>
-              <InPort>23</InPort>
+              <OID>28</OID>
+              <Comment>29</Comment>
+              <OutModel>21</OutModel>
+              <InModel>27</InModel>
+              <OutPort>30</OutPort>
+              <InPort>31</InPort>
               <Parent>0</Parent>
             </CustomProperties>
             <PortAnchors>
               <Port>
                 <Location>
-                  <X>113 px</X>
-                  <Y>0 px</Y>
-                </Location>
-                <Anchors>Left Right</Anchors>
-                <Align>Bottom</Align>
-                <CustomProperties>
-                  <OID>22</OID>
-                  <PortType>FloatAnchor</PortType>
-                </CustomProperties>
-              </Port>
-              <Port>
-                <Location>
-                  <X>113 px</X>
+                  <X>123 px</X>
                   <Y>0 px</Y>
                 </Location>
                 <Anchors>Left Right</Anchors>
                 <Align>Top</Align>
                 <CustomProperties>
-                  <OID>23</OID>
+                  <OID>30</OID>
+                  <PortType>FloatAnchor</PortType>
+                </CustomProperties>
+              </Port>
+              <Port>
+                <Location>
+                  <X>103 px</X>
+                  <Y>0 px</Y>
+                </Location>
+                <Anchors>Left Right</Anchors>
+                <Align>Bottom</Align>
+                <CustomProperties>
+                  <OID>31</OID>
                   <PortType>FloatAnchor</PortType>
                 </CustomProperties>
               </Port>
             </PortAnchors>
+            <BendPoints>
+              <PointD>
+                <X>-277 px</X>
+                <Y>350 px</Y>
+              </PointD>
+              <PointD>
+                <X>-287 px</X>
+                <Y>350 px</Y>
+              </PointD>
+            </BendPoints>
             <IsManuallyRouted>false</IsManuallyRouted>
             <DbOid>
-              <Path>brakingpoint.users_sports_relationship.users_sports_relationship_ibfk_1</Path>
+              <Path>brakingpoint.users.FK_users_connection_user_sport</Path>
               <TypeName>ForeignKey</TypeName>
             </DbOid>
           </Model>
           <Model xsi:type="RelationCommentModel">
             <CustomProperties>
-              <OID>21</OID>
-              <HolderModel>20</HolderModel>
-              <Port>24</Port>
+              <OID>29</OID>
+              <HolderModel>28</HolderModel>
+              <Port>32</Port>
               <Parent>0</Parent>
             </CustomProperties>
             <PortAnchors>
               <Port xsi:type="LinkPort">
                 <Location>
-                  <X>0 px</X>
-                  <Y>-71.5 px</Y>
-                </Location>
-                <Anchors>None</Anchors>
-                <Align>Bottom</Align>
-                <CustomProperties>
-                  <OID>24</OID>
-                  <PortType>FixedAnchor</PortType>
-                </CustomProperties>
-                <LinkPortAnchor>OutPoint</LinkPortAnchor>
-              </Port>
-            </PortAnchors>
-            <CommentOffset>
-              <X>22 px</X>
-              <Y>2 px</Y>
-            </CommentOffset>
-          </Model>
-          <Model xsi:type="RelationLinkModel">
-            <CustomProperties>
-              <OID>25</OID>
-              <Comment>26</Comment>
-              <OutModel>19</OutModel>
-              <InModel>5</InModel>
-              <OutPort>27</OutPort>
-              <InPort>28</InPort>
-              <Parent>0</Parent>
-            </CustomProperties>
-            <PortAnchors>
-              <Port>
-                <Location>
-                  <X>88 px</X>
-                  <Y>0 px</Y>
-                </Location>
-                <Anchors>Left Right</Anchors>
-                <Align>Top</Align>
-                <CustomProperties>
-                  <OID>27</OID>
-                  <PortType>FloatAnchor</PortType>
-                </CustomProperties>
-              </Port>
-              <Port>
-                <Location>
-                  <X>88 px</X>
-                  <Y>0 px</Y>
-                </Location>
-                <Anchors>Left Right</Anchors>
-                <Align>Bottom</Align>
-                <CustomProperties>
-                  <OID>28</OID>
-                  <PortType>FloatAnchor</PortType>
-                </CustomProperties>
-              </Port>
-            </PortAnchors>
-            <IsManuallyRouted>false</IsManuallyRouted>
-            <DbOid>
-              <Path>brakingpoint.users_sports_relationship.users_sports_relationship_ibfk_2</Path>
-              <TypeName>ForeignKey</TypeName>
-            </DbOid>
-          </Model>
-          <Model xsi:type="RelationCommentModel">
-            <CustomProperties>
-              <OID>26</OID>
-              <HolderModel>25</HolderModel>
-              <Port>29</Port>
-              <Parent>0</Parent>
-            </CustomProperties>
-            <PortAnchors>
-              <Port xsi:type="LinkPort">
-                <Location>
-                  <X>0 px</X>
-                  <Y>70 px</Y>
+                  <X>10 px</X>
+                  <Y>36.5 px</Y>
                 </Location>
                 <Anchors>None</Anchors>
                 <Align>Top</Align>
-                <CustomProperties>
-                  <OID>29</OID>
-                  <PortType>FixedAnchor</PortType>
-                </CustomProperties>
-                <LinkPortAnchor>OutPoint</LinkPortAnchor>
-              </Port>
-            </PortAnchors>
-            <CommentOffset>
-              <X>22 px</X>
-              <Y>2 px</Y>
-            </CommentOffset>
-          </Model>
-          <Model xsi:type="RelationLinkModel">
-            <CustomProperties>
-              <OID>30</OID>
-              <Comment>31</Comment>
-              <OutModel>6</OutModel>
-              <InModel>5</InModel>
-              <OutPort>32</OutPort>
-              <InPort>33</InPort>
-              <Parent>0</Parent>
-            </CustomProperties>
-            <PortAnchors>
-              <Port>
-                <Location>
-                  <X>88 px</X>
-                  <Y>0 px</Y>
-                </Location>
-                <Anchors>Left Right</Anchors>
-                <Align>Bottom</Align>
                 <CustomProperties>
                   <OID>32</OID>
-                  <PortType>FloatAnchor</PortType>
-                </CustomProperties>
-              </Port>
-              <Port>
-                <Location>
-                  <X>88 px</X>
-                  <Y>0 px</Y>
-                </Location>
-                <Anchors>Left Right</Anchors>
-                <Align>Top</Align>
-                <CustomProperties>
-                  <OID>33</OID>
-                  <PortType>FloatAnchor</PortType>
-                </CustomProperties>
-              </Port>
-            </PortAnchors>
-            <IsManuallyRouted>false</IsManuallyRouted>
-            <DbOid>
-              <Path>brakingpoint.teams.teams_ibfk_1</Path>
-              <TypeName>ForeignKey</TypeName>
-            </DbOid>
-          </Model>
-          <Model xsi:type="RelationCommentModel">
-            <CustomProperties>
-              <OID>31</OID>
-              <HolderModel>30</HolderModel>
-              <Port>34</Port>
-              <Parent>0</Parent>
-            </CustomProperties>
-            <PortAnchors>
-              <Port xsi:type="LinkPort">
-                <Location>
-                  <X>0 px</X>
-                  <Y>-68 px</Y>
-                </Location>
-                <Anchors>None</Anchors>
-                <Align>Bottom</Align>
-                <CustomProperties>
-                  <OID>34</OID>
                   <PortType>FixedAnchor</PortType>
                 </CustomProperties>
                 <LinkPortAnchor>OutPoint</LinkPortAnchor>
@@ -622,12 +606,12 @@
           </Model>
           <Model xsi:type="RelationLinkModel">
             <CustomProperties>
-              <OID>35</OID>
-              <Comment>36</Comment>
-              <OutModel>2</OutModel>
-              <InModel>6</InModel>
-              <OutPort>37</OutPort>
-              <InPort>38</InPort>
+              <OID>33</OID>
+              <Comment>34</Comment>
+              <OutModel>3</OutModel>
+              <InModel>27</InModel>
+              <OutPort>35</OutPort>
+              <InPort>36</InPort>
               <Parent>0</Parent>
             </CustomProperties>
             <PortAnchors>
@@ -637,48 +621,48 @@
                   <Y>0 px</Y>
                 </Location>
                 <Anchors>Left Right</Anchors>
+                <Align>Bottom</Align>
+                <CustomProperties>
+                  <OID>35</OID>
+                  <PortType>FloatAnchor</PortType>
+                </CustomProperties>
+              </Port>
+              <Port>
+                <Location>
+                  <X>108 px</X>
+                  <Y>0 px</Y>
+                </Location>
+                <Anchors>Left Right</Anchors>
+                <Align>Top</Align>
+                <CustomProperties>
+                  <OID>36</OID>
+                  <PortType>FloatAnchor</PortType>
+                </CustomProperties>
+              </Port>
+            </PortAnchors>
+            <IsManuallyRouted>false</IsManuallyRouted>
+            <DbOid>
+              <Path>brakingpoint.sports.FK_sports_connection_user_sport</Path>
+              <TypeName>ForeignKey</TypeName>
+            </DbOid>
+          </Model>
+          <Model xsi:type="RelationCommentModel">
+            <CustomProperties>
+              <OID>34</OID>
+              <HolderModel>33</HolderModel>
+              <Port>37</Port>
+              <Parent>0</Parent>
+            </CustomProperties>
+            <PortAnchors>
+              <Port xsi:type="LinkPort">
+                <Location>
+                  <X>0 px</X>
+                  <Y>-25 px</Y>
+                </Location>
+                <Anchors>None</Anchors>
                 <Align>Bottom</Align>
                 <CustomProperties>
                   <OID>37</OID>
-                  <PortType>FloatAnchor</PortType>
-                </CustomProperties>
-              </Port>
-              <Port>
-                <Location>
-                  <X>88 px</X>
-                  <Y>0 px</Y>
-                </Location>
-                <Anchors>Left Right</Anchors>
-                <Align>Top</Align>
-                <CustomProperties>
-                  <OID>38</OID>
-                  <PortType>FloatAnchor</PortType>
-                </CustomProperties>
-              </Port>
-            </PortAnchors>
-            <IsManuallyRouted>false</IsManuallyRouted>
-            <DbOid>
-              <Path>brakingpoint.competitors.competitors_ibfk_1</Path>
-              <TypeName>ForeignKey</TypeName>
-            </DbOid>
-          </Model>
-          <Model xsi:type="RelationCommentModel">
-            <CustomProperties>
-              <OID>36</OID>
-              <HolderModel>35</HolderModel>
-              <Port>39</Port>
-              <Parent>0</Parent>
-            </CustomProperties>
-            <PortAnchors>
-              <Port xsi:type="LinkPort">
-                <Location>
-                  <X>0 px</X>
-                  <Y>-78 px</Y>
-                </Location>
-                <Anchors>None</Anchors>
-                <Align>Bottom</Align>
-                <CustomProperties>
-                  <OID>39</OID>
                   <PortType>FixedAnchor</PortType>
                 </CustomProperties>
                 <LinkPortAnchor>OutPoint</LinkPortAnchor>
@@ -689,75 +673,88 @@
               <Y>2 px</Y>
             </CommentOffset>
           </Model>
+          <Model xsi:type="TableModel">
+            <CustomProperties>
+              <OID>38</OID>
+              <Parent>0</Parent>
+            </CustomProperties>
+            <Location>
+              <X>40 px</X>
+              <Y>230 px</Y>
+            </Location>
+            <Size>
+              <Width>277 px</Width>
+              <Height>127 px</Height>
+            </Size>
+            <DbOid>
+              <Path>brakingpoint.connection_available_bet_ticket</Path>
+              <TypeName>Table</TypeName>
+            </DbOid>
+            <Compartments>
+              <ConstraintsCollapsed>True</ConstraintsCollapsed>
+              <IndexesCollapsed>True</IndexesCollapsed>
+              <TriggersCollapsed>True</TriggersCollapsed>
+            </Compartments>
+          </Model>
           <Model xsi:type="RelationLinkModel">
             <CustomProperties>
-              <OID>40</OID>
-              <Comment>41</Comment>
-              <OutModel>3</OutModel>
-              <InModel>5</InModel>
-              <OutPort>42</OutPort>
-              <InPort>43</InPort>
+              <OID>39</OID>
+              <Comment>40</Comment>
+              <OutModel>1</OutModel>
+              <InModel>38</InModel>
+              <OutPort>41</OutPort>
+              <InPort>42</InPort>
               <Parent>0</Parent>
             </CustomProperties>
             <PortAnchors>
               <Port>
                 <Location>
-                  <X>0 px</X>
-                  <Y>70.6666666666667 px</Y>
+                  <X>102.5 px</X>
+                  <Y>0 px</Y>
                 </Location>
-                <Anchors>Top Bottom</Anchors>
-                <Align>Right</Align>
+                <Anchors>Left Right</Anchors>
+                <Align>Bottom</Align>
+                <CustomProperties>
+                  <OID>41</OID>
+                  <PortType>FloatAnchor</PortType>
+                </CustomProperties>
+              </Port>
+              <Port>
+                <Location>
+                  <X>122.5 px</X>
+                  <Y>0 px</Y>
+                </Location>
+                <Anchors>Left Right</Anchors>
+                <Align>Top</Align>
                 <CustomProperties>
                   <OID>42</OID>
                   <PortType>FloatAnchor</PortType>
                 </CustomProperties>
               </Port>
-              <Port>
-                <Location>
-                  <X>0 px</X>
-                  <Y>55 px</Y>
-                </Location>
-                <Anchors>Top Bottom</Anchors>
-                <Align>Left</Align>
-                <CustomProperties>
-                  <OID>43</OID>
-                  <PortType>FloatAnchor</PortType>
-                </CustomProperties>
-              </Port>
             </PortAnchors>
-            <BendPoints>
-              <PointD>
-                <X>-294 px</X>
-                <Y>-359.333343505859 px</Y>
-              </PointD>
-              <PointD>
-                <X>-294 px</X>
-                <Y>-365 px</Y>
-              </PointD>
-            </BendPoints>
             <IsManuallyRouted>false</IsManuallyRouted>
             <DbOid>
-              <Path>brakingpoint.news.news_ibfk_1</Path>
+              <Path>brakingpoint.available_bets.FK_available_bets_connection_available_bet_ticket</Path>
               <TypeName>ForeignKey</TypeName>
             </DbOid>
           </Model>
           <Model xsi:type="RelationCommentModel">
             <CustomProperties>
-              <OID>41</OID>
-              <HolderModel>40</HolderModel>
-              <Port>44</Port>
+              <OID>40</OID>
+              <HolderModel>39</HolderModel>
+              <Port>43</Port>
               <Parent>0</Parent>
             </CustomProperties>
             <PortAnchors>
               <Port xsi:type="LinkPort">
                 <Location>
-                  <X>-167 px</X>
-                  <Y>5.66666666666663 px</Y>
+                  <X>0 px</X>
+                  <Y>-26 px</Y>
                 </Location>
                 <Anchors>None</Anchors>
-                <Align>Right</Align>
+                <Align>Bottom</Align>
                 <CustomProperties>
-                  <OID>44</OID>
+                  <OID>43</OID>
                   <PortType>FixedAnchor</PortType>
                 </CustomProperties>
                 <LinkPortAnchor>OutPoint</LinkPortAnchor>
@@ -770,73 +767,63 @@
           </Model>
           <Model xsi:type="RelationLinkModel">
             <CustomProperties>
-              <OID>45</OID>
-              <Comment>46</Comment>
-              <OutModel>1</OutModel>
-              <InModel>5</InModel>
-              <OutPort>47</OutPort>
-              <InPort>48</InPort>
+              <OID>44</OID>
+              <Comment>45</Comment>
+              <OutModel>20</OutModel>
+              <InModel>38</InModel>
+              <OutPort>46</OutPort>
+              <InPort>47</InPort>
               <Parent>0</Parent>
             </CustomProperties>
             <PortAnchors>
               <Port>
                 <Location>
-                  <X>0 px</X>
-                  <Y>72.6736111111111 px</Y>
+                  <X>147.75 px</X>
+                  <Y>0 px</Y>
                 </Location>
-                <Anchors>Top Bottom</Anchors>
-                <Align>Left</Align>
+                <Anchors>Left Right</Anchors>
+                <Align>Top</Align>
+                <CustomProperties>
+                  <OID>46</OID>
+                  <PortType>FloatAnchor</PortType>
+                </CustomProperties>
+              </Port>
+              <Port>
+                <Location>
+                  <X>187.75 px</X>
+                  <Y>0 px</Y>
+                </Location>
+                <Anchors>Left Right</Anchors>
+                <Align>Bottom</Align>
                 <CustomProperties>
                   <OID>47</OID>
                   <PortType>FloatAnchor</PortType>
                 </CustomProperties>
               </Port>
-              <Port>
-                <Location>
-                  <X>0 px</X>
-                  <Y>55 px</Y>
-                </Location>
-                <Anchors>Top Bottom</Anchors>
-                <Align>Right</Align>
-                <CustomProperties>
-                  <OID>48</OID>
-                  <PortType>FloatAnchor</PortType>
-                </CustomProperties>
-              </Port>
             </PortAnchors>
-            <BendPoints>
-              <PointD>
-                <X>480 px</X>
-                <Y>-357.326385498047 px</Y>
-              </PointD>
-              <PointD>
-                <X>480 px</X>
-                <Y>-365 px</Y>
-              </PointD>
-            </BendPoints>
             <IsManuallyRouted>false</IsManuallyRouted>
             <DbOid>
-              <Path>brakingpoint.availablebets.availablebets_ibfk_1</Path>
+              <Path>brakingpoint.tickets.FK_tickets_connection_available_bet_ticket</Path>
               <TypeName>ForeignKey</TypeName>
             </DbOid>
           </Model>
           <Model xsi:type="RelationCommentModel">
             <CustomProperties>
-              <OID>46</OID>
-              <HolderModel>45</HolderModel>
-              <Port>49</Port>
+              <OID>45</OID>
+              <HolderModel>44</HolderModel>
+              <Port>48</Port>
               <Parent>0</Parent>
             </CustomProperties>
             <PortAnchors>
               <Port xsi:type="LinkPort">
                 <Location>
-                  <X>172 px</X>
-                  <Y>7.67361111111109 px</Y>
+                  <X>0 px</X>
+                  <Y>36.5 px</Y>
                 </Location>
                 <Anchors>None</Anchors>
-                <Align>Left</Align>
+                <Align>Top</Align>
                 <CustomProperties>
-                  <OID>49</OID>
+                  <OID>48</OID>
                   <PortType>FixedAnchor</PortType>
                 </CustomProperties>
                 <LinkPortAnchor>OutPoint</LinkPortAnchor>
@@ -850,10 +837,10 @@
         </Children>
         <ViewPort>
           <ScaleMode>Free</ScaleMode>
-          <Scale>0.7</Scale>
+          <Scale>1</Scale>
           <Location>
-            <X>-1888.57148902757 px</X>
-            <Y>-2517.14288803509 px</Y>
+            <X>-996 px</X>
+            <Y>-31 px</Y>
           </Location>
         </ViewPort>
       </Model>
