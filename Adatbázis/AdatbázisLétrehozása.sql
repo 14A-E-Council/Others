@@ -1,177 +1,111 @@
-﻿CREATE TABLE brakingpoint.competitors (
-  competitorID INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
-  teamID INT(11) UNSIGNED NOT NULL,
-  description VARCHAR(255) DEFAULT NULL,
-  name VARCHAR(50) NOT NULL,
-  PRIMARY KEY (competitorID)
-)
-ENGINE = INNODB,
-CHARACTER SET utf8,
-COLLATE utf8_hungarian_ci;
+CREATE DATABASE brakingpoint
+	CHARACTER SET utf8
+	COLLATE utf8_hungarian_ci;
 
-CREATE TABLE brakingpoint.availablebets (
-  availableBetsID INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
-  sportID INT(11) UNSIGNED NOT NULL,
-  date DATETIME NOT NULL,
-  category VARCHAR(255) NOT NULL,
-  odds INT(11) UNSIGNED NOT NULL DEFAULT 1,
-  PRIMARY KEY (availableBetsID)
-)
-ENGINE = INNODB,
-CHARACTER SET utf8,
-COLLATE utf8_hungarian_ci;
-
-CREATE TABLE brakingpoint.news (
-  newsID INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
-  sportID INT(11) UNSIGNED NOT NULL,
-  uploadDate DATETIME NOT NULL,
-  updateDate DATETIME DEFAULT NULL,
-  content TEXT NOT NULL,
-  type TINYINT(1) NOT NULL,
-  title VARCHAR(100) NOT NULL,
-  author VARCHAR(50) DEFAULT NULL,
-  PRIMARY KEY (newsID)
-)
-ENGINE = INNODB,
-CHARACTER SET utf8,
-COLLATE utf8_hungarian_ci;
-
-CREATE TABLE brakingpoint.previousbets (
-  previous_betsID INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
-  userID INT(11) UNSIGNED NOT NULL,
-  date DATETIME NOT NULL,
-  bet INT(11) UNSIGNED NOT NULL,
-  odds INT(11) UNSIGNED NOT NULL,
-  amount INT(11) UNSIGNED NOT NULL DEFAULT 1,
-  endResult TINYINT(1) NOT NULL,
-  PRIMARY KEY (previous_betsID)
-)
-ENGINE = INNODB,
-CHARACTER SET utf8,
-COLLATE utf8_hungarian_ci,
-COMMENT = 'bet foreign key?? minimum felrakott összeg eldöntése';
-
-CREATE TABLE brakingpoint.profiles (
-  userID INT(11) UNSIGNED NOT NULL,
-  profilePicture VARCHAR(255) DEFAULT NULL,
-  selectedColorPalette INT(11) UNSIGNED NOT NULL DEFAULT 0,
-  pictureFrame VARCHAR(255) DEFAULT NULL,
-  rank INT(11) UNSIGNED NOT NULL DEFAULT 0,
-  PRIMARY KEY (userID)
-)
-ENGINE = INNODB,
-CHARACTER SET utf8,
-COLLATE utf8_hungarian_ci,
-COMMENT = 'Profilképhez és képkerethez default képet állítani';
-
-CREATE TABLE brakingpoint.sports (
-  sportID INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
-  description VARCHAR(255) DEFAULT NULL,
-  name VARCHAR(50) NOT NULL,
-  PRIMARY KEY (sportID)
-)
-ENGINE = INNODB,
-CHARACTER SET utf8,
-COLLATE utf8_hungarian_ci;
-
-CREATE TABLE brakingpoint.teams (
-  teamID INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
-  sportID INT(11) UNSIGNED NOT NULL,
-  description VARCHAR(255) DEFAULT NULL,
-  name VARCHAR(50) NOT NULL,
-  PRIMARY KEY (teamID)
-)
-ENGINE = INNODB,
-CHARACTER SET utf8,
-COLLATE utf8_hungarian_ci;
 
 CREATE TABLE brakingpoint.users (
-  userID INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+  PK_user INT(11) NOT NULL AUTO_INCREMENT,
   username VARCHAR(255) NOT NULL,
-  lastName VARCHAR(255) DEFAULT NULL,
-  firstName VARCHAR(255) DEFAULT NULL,
+  last_name VARCHAR(255) DEFAULT NULL,
+  first_name VARCHAR(255) DEFAULT NULL,
   email VARCHAR(50) NOT NULL,
   password VARCHAR(255) NOT NULL,
-  balance INT(11) UNSIGNED NOT NULL DEFAULT 0,
-  registrationDate DATETIME NOT NULL,
-  prefferedCategory INT(11) NOT NULL DEFAULT 0,
-  level INT(11) UNSIGNED NOT NULL DEFAULT 0,
-  PRIMARY KEY (userID)
+  balance INT(11) NOT NULL,
+  registration_date DATE NOT NULL,
+  preferred_category VARCHAR(255) DEFAULT NULL,
+  level INT(11) NOT NULL,
+  picture_frame VARCHAR(255) DEFAULT NULL,
+  rank INT(11) NOT NULL,
+  colour_palette VARCHAR(255) DEFAULT NULL,
+  profile_picture VARCHAR(255) DEFAULT NULL,
+  PRIMARY KEY (PK_user)
 )
 ENGINE = INNODB,
 CHARACTER SET utf8,
 COLLATE utf8_hungarian_ci;
 
-CREATE TABLE brakingpoint.users_sports_relationship (
-  relationID INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
-  userID INT(11) UNSIGNED NOT NULL,
-  sportID INT(11) UNSIGNED NOT NULL,
-  PRIMARY KEY (relationID)
+
+CREATE TABLE brakingpoint.sports (
+  PK_sport INT(11) NOT NULL AUTO_INCREMENT,
+  name VARCHAR(50) NOT NULL,
+  description VARCHAR(255) DEFAULT NULL,
+  PRIMARY KEY (PK_sport)
 )
 ENGINE = INNODB,
 CHARACTER SET utf8,
 COLLATE utf8_hungarian_ci;
 
-CREATE TABLE brakingpoint.payments (
-  userID INT(11) UNSIGNED NOT NULL,
-  date DATETIME NOT NULL,
-  amount INT(11) UNSIGNED NOT NULL,
-  status INT(11) UNSIGNED NOT NULL DEFAULT 0,
-  PRIMARY KEY (userID)
+
+CREATE TABLE brakingpoint.teams (
+  PK_team INT(11) NOT NULL AUTO_INCREMENT,
+  name VARCHAR(50) NOT NULL,
+  description VARCHAR(255) DEFAULT NULL,
+  FK_sport INT(11) NOT NULL,
+  PRIMARY KEY (PK_team)
 )
 ENGINE = INNODB,
 CHARACTER SET utf8,
 COLLATE utf8_hungarian_ci;
 
-CREATE TABLE brakingpoint.availablebets_tickets_relationship (
-  relationID INT(11) UNSIGNED NOT NULL,
-  ticketID INT(11) UNSIGNED NOT NULL,
-  availablebetID INT(11) UNSIGNED NOT NULL
+
+ALTER TABLE brakingpoint.teams
+  ADD CONSTRAINT FK_sport FOREIGN KEY (PK_sport)
+    REFERENCES brakingpoint.sports(PK_sport);
+
+
+CREATE TABLE brakingpoint.competitors (
+  PK_competitor INT(11) NOT NULL AUTO_INCREMENT,
+  name VARCHAR(50) DEFAULT NULL,
+  description VARCHAR(255) DEFAULT NULL,
+  FK_team INT(11) NOT NULL,
+  PRIMARY KEY (PK_competitor)
 )
 ENGINE = INNODB,
 CHARACTER SET utf8,
 COLLATE utf8_hungarian_ci;
 
-ALTER TABLE brakingpoint.availablebets_tickets_relationship 
-  ADD CONSTRAINT availablebets_tickets_relationship_ibfk_2 FOREIGN KEY (ticketID)
-    REFERENCES brakingpoint.tickets(ticketID);
 
-ALTER TABLE brakingpoint.availablebets_tickets_relationship 
-  ADD CONSTRAINT tickets_availablebets_relationship_ibfk_2 FOREIGN KEY (availableBetsID)
-    REFERENCES brakingpoint.availablebets(availableBetsID);
+ALTER TABLE brakingpoint.competitors
+  ADD CONSTRAINT FK_team FOREIGN KEY (PK_team)
+    REFERENCES brakingpoint.teams(PK_team);
 
-ALTER TABLE brakingpoint.payments 
-  ADD CONSTRAINT FK_payments_users_userID FOREIGN KEY (userID)
-    REFERENCES brakingpoint.users(userID) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
-ALTER TABLE brakingpoint.previousbets 
-  ADD CONSTRAINT previousbets_ibfk_1 FOREIGN KEY (userID)
-    REFERENCES brakingpoint.users(userID);
+CREATE TABLE brakingpoint.available_bets (
+  PK_available_bets INT(11) NOT NULL AUTO_INCREMENT,
+  date DATE NOT NULL,
+  category VARCHAR(255) NOT NULL,
+  odds DOUBLE NOT NULL,
+  status VARCHAR(255) NOT NULL,
+  FK_sport INT(11) DEFAULT NULL,
+  PRIMARY KEY (PK_available_bets)
+)
+ENGINE = INNODB,
+CHARACTER SET utf8,
+COLLATE utf8_hungarian_ci;
 
-ALTER TABLE brakingpoint.profiles 
-  ADD CONSTRAINT FK_profiles_users_userID FOREIGN KEY (userID)
-    REFERENCES brakingpoint.users(userID) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
-ALTER TABLE brakingpoint.teams 
-  ADD CONSTRAINT teams_ibfk_1 FOREIGN KEY (sportID)
-    REFERENCES brakingpoint.sports(sportID);
+ALTER TABLE brakingpoint.available_bets
+  ADD CONSTRAINT FK_sport FOREIGN KEY (PK_sport)
+    REFERENCES brakingpoint.sports(PK_sport);
 
-ALTER TABLE brakingpoint.users_sports_relationship 
-  ADD CONSTRAINT users_sports_relationship_ibfk_1 FOREIGN KEY (userID)
-    REFERENCES brakingpoint.users(userID);
 
-ALTER TABLE brakingpoint.users_sports_relationship 
-  ADD CONSTRAINT users_sports_relationship_ibfk_2 FOREIGN KEY (sportID)
-    REFERENCES brakingpoint.sports(sportID);
+CREATE TABLE brakingpoint.tickets (
+  PK_ticket INT(11) NOT NULL AUTO_INCREMENT,
+  status VARCHAR(255) NOT NULL,
+  debt INT(11) NOT NULL,
+  sum_odds DOUBLE NOT NULL,
+  races VARCHAR(255) NOT NULL,
+  payment_date DATE DEFAULT NULL,
+  FK_user INT(11) NOT NULL,
+  FK_bets INT(11) NOT NULL,
+  PRIMARY KEY (PK_ticket)
+)
+ENGINE = INNODB,
+CHARACTER SET utf8,
+COLLATE utf8_hungarian_ci;
 
-ALTER TABLE brakingpoint.news 
-  ADD CONSTRAINT news_ibfk_1 FOREIGN KEY (sportID)
-    REFERENCES brakingpoint.sports(sportID);
-
-ALTER TABLE brakingpoint.availablebets 
-  ADD CONSTRAINT availablebets_ibfk_1 FOREIGN KEY (sportID)
-    REFERENCES brakingpoint.sports(sportID);
-
-ALTER TABLE brakingpoint.competitors 
-  ADD CONSTRAINT competitors_ibfk_1 FOREIGN KEY (teamID)
-    REFERENCES brakingpoint.teams(teamID);
+ALTER TABLE brakingpoint.tickets
+  ADD CONSTRAINT FK_user FOREIGN KEY (PK_user)
+  ADD CONSTRAINT FK_bets FOREIGN KEY (PK_available_bets)
+    REFERENCES brakingpoint.users(PK_user)
+    REFERENCES brakingpoint.available_bets(PK_available_bets);
