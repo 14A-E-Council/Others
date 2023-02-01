@@ -24,10 +24,6 @@ ENGINE = INNODB,
 CHARACTER SET utf8,
 COLLATE utf8_hungarian_ci;
 
-ALTER TABLE brakingpoint.users 
-  ADD CONSTRAINT FK_users_connection_user_sport FOREIGN KEY (userID)
-    REFERENCES brakingpoint.connection_user_sport(userID);
-
 
 CREATE TABLE brakingpoint.sports (
   sportID INT(11) NOT NULL AUTO_INCREMENT,
@@ -38,10 +34,6 @@ CREATE TABLE brakingpoint.sports (
 ENGINE = INNODB,
 CHARACTER SET utf8,
 COLLATE utf8_hungarian_ci;
-
-ALTER TABLE brakingpoint.sports 
-  ADD CONSTRAINT FK_sports_connection_user_sport FOREIGN KEY (sportID)
-    REFERENCES brakingpoint.connection_user_sport(sportID);
 
 
 CREATE TABLE brakingpoint.teams (
@@ -57,11 +49,6 @@ CHARACTER SET utf8,
 COLLATE utf8_hungarian_ci;
 
 
-ALTER TABLE brakingpoint.teams
-  ADD CONSTRAINT FK_sport_team FOREIGN KEY (sportID)
-    REFERENCES brakingpoint.sports(sportID);
-
-
 CREATE TABLE brakingpoint.competitors (
   competitorID INT(11) NOT NULL AUTO_INCREMENT,
   name VARCHAR(50) DEFAULT NULL,
@@ -73,11 +60,6 @@ CREATE TABLE brakingpoint.competitors (
 ENGINE = INNODB,
 CHARACTER SET utf8,
 COLLATE utf8_hungarian_ci;
-
-
-ALTER TABLE brakingpoint.competitors
-  ADD CONSTRAINT FK_team_competitor FOREIGN KEY (teamID)
-    REFERENCES brakingpoint.teams(teamID);
 
 
 CREATE TABLE brakingpoint.available_bets (
@@ -95,15 +77,6 @@ CHARACTER SET utf8,
 COLLATE utf8_hungarian_ci;
 
 
-ALTER TABLE brakingpoint.available_bets
-  ADD CONSTRAINT FK_sport_available_bets FOREIGN KEY (sportID)
-    REFERENCES brakingpoint.sports(sportID);
-   
-ALTER TABLE brakingpoint.available_bets 
-  ADD CONSTRAINT FK_available_bets_connection_available_bet_ticket FOREIGN KEY (available_betID)
-    REFERENCES brakingpoint.connection_available_bet_ticket(available_betID);
-
-
 CREATE TABLE brakingpoint.tickets (
   ticketID INT(11) NOT NULL AUTO_INCREMENT,
   status VARCHAR(255) NOT NULL,
@@ -118,14 +91,6 @@ CREATE TABLE brakingpoint.tickets (
 ENGINE = INNODB,
 CHARACTER SET utf8,
 COLLATE utf8_hungarian_ci;
-
-ALTER TABLE brakingpoint.tickets
-  ADD CONSTRAINT FK_user_ticket FOREIGN KEY (userID)
-    REFERENCES brakingpoint.users(userID);
-    
-ALTER TABLE brakingpoint.tickets 
-  ADD CONSTRAINT FK_tickets_connection_available_bet_ticket FOREIGN KEY (ticketID)
-    REFERENCES brakingpoint.connection_available_bet_ticket(ticketID);
     
 
 CREATE TABLE brakingpoint.connection_user_sport (
@@ -152,3 +117,42 @@ CREATE TABLE brakingpoint.connection_available_bet_ticket (
 ENGINE = INNODB,
 CHARACTER SET utf8,
 COLLATE utf8_hungarian_ci;
+
+
+ALTER TABLE brakingpoint.users 
+  ADD CONSTRAINT FK_users_connection_user_sport FOREIGN KEY (userID)
+    REFERENCES brakingpoint.connection_user_sport(userID);
+    
+    
+ALTER TABLE brakingpoint.sports 
+  ADD CONSTRAINT FK_sports_connection_user_sport FOREIGN KEY (sportID)
+    REFERENCES brakingpoint.connection_user_sport(sportID);
+
+
+ALTER TABLE brakingpoint.teams
+  ADD CONSTRAINT FK_sport_team FOREIGN KEY (sportID)
+    REFERENCES brakingpoint.sports(sportID);
+    
+    
+ALTER TABLE brakingpoint.competitors
+  ADD CONSTRAINT FK_team_competitor FOREIGN KEY (teamID)
+    REFERENCES brakingpoint.teams(teamID);
+    
+    
+ALTER TABLE brakingpoint.available_bets
+  ADD CONSTRAINT FK_sport_available_bets FOREIGN KEY (sportID)
+    REFERENCES brakingpoint.sports(sportID);
+   
+ALTER TABLE brakingpoint.available_bets 
+  ADD CONSTRAINT FK_available_bets_connection_available_bet_ticket FOREIGN KEY (available_betID)
+    REFERENCES brakingpoint.connection_available_bet_ticket(available_betID);
+
+    
+ALTER TABLE brakingpoint.tickets
+  ADD CONSTRAINT FK_user_ticket FOREIGN KEY (userID)
+    REFERENCES brakingpoint.users(userID);
+    
+ALTER TABLE brakingpoint.tickets 
+  ADD CONSTRAINT FK_tickets_connection_available_bet_ticket FOREIGN KEY (ticketID)
+    REFERENCES brakingpoint.connection_available_bet_ticket(ticketID);
+
