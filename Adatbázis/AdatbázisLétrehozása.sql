@@ -49,17 +49,38 @@ CHARACTER SET utf8,
 COLLATE utf8_hungarian_ci;
 
 
-CREATE TABLE IF NOT EXISTS brakingpoint.competitors (
-  competitorID INT(11) NOT NULL AUTO_INCREMENT,
-  name VARCHAR(50) DEFAULT NULL,
-  description VARCHAR(255) DEFAULT NULL,
-  teamID INT(11) NOT NULL,
-  PRIMARY KEY (competitorID),
-  FOREIGN KEY (teamID) REFERENCES brakingpoint.teams(teamID)
+CREATE TABLE brakingpoint.competitors (
+  competitorID BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+  name VARCHAR(255) NOT NULL,
+  description LONGTEXT NOT NULL,
+  permanentNumber INT(11) NOT NULL,
+  nationality VARCHAR(255) NOT NULL,
+  dateOfBirth DATE NOT NULL,
+  teamID BIGINT(20) UNSIGNED NOT NULL,
+  created_at TIMESTAMP(1) NULL DEFAULT NULL,
+  updated_at TIMESTAMP(1) NULL DEFAULT NULL,
+  PRIMARY KEY (competitorID)
 )
 ENGINE = INNODB,
-CHARACTER SET utf8,
-COLLATE utf8_hungarian_ci;
+CHARACTER SET utf8mb4,
+COLLATE utf8mb4_unicode_ci;
+
+
+CREATE TABLE brakingpoint.raceresults (
+  raceResultID BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+  raceName VARCHAR(255) NOT NULL,
+  `position` INT(11) NOT NULL,
+  points DOUBLE(8, 2) NOT NULL,
+  fastestLap INT(11) NOT NULL,
+  time VARCHAR(255) NOT NULL,
+  laps INT(11) NOT NULL,
+  competitorID BIGINT(20) UNSIGNED NOT NULL,
+  PRIMARY KEY (raceResultID),
+  FOREIGN KEY (competitorID) REFERENCES brakingpoint.competitors(competitorID)
+)
+ENGINE = INNODB,
+CHARACTER SET utf8mb4,
+COLLATE utf8mb4_unicode_ci;
 
 
 CREATE TABLE IF NOT EXISTS brakingpoint.available_bets (
