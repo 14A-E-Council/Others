@@ -14,8 +14,10 @@ ELSEIF NEW.status = 'winSecond' THEN
 ELSEIF NEW.status = 'win' THEN
     UPDATE tickets SET status = 'win'
     WHERE betID = NEW.available_betID;
+ELSEIF NEW.status = 'lose' THEN
+    UPDATE tickets SET status = 'lose'
+    WHERE betID = NEW.available_betID;
   END IF;
-
 END
 
 CREATE 
