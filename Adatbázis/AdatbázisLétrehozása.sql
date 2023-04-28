@@ -195,20 +195,6 @@ CHARACTER SET utf8mb4,
 COLLATE utf8mb4_unicode_ci;
 
 
-CREATE TABLE IF NOT EXISTS brakingpoint.available_bets (
-  available_betID INT(11) NOT NULL AUTO_INCREMENT,
-  date DATE NOT NULL,
-  category VARCHAR(255) NOT NULL,
-  odds DOUBLE NOT NULL,
-  status VARCHAR(255) NOT NULL,
-  sportID INT(11) DEFAULT NULL,
-  PRIMARY KEY (available_betID),
-  FOREIGN KEY (sportID) REFERENCES brakingpoint.sports(sportID)
-)
-ENGINE = INNODB,
-CHARACTER SET utf8,
-COLLATE utf8_hungarian_ci;
-
 
 CREATE TABLE brakingpoint.tickets (
   ticketID BIGINT(20) UNSIGNED NOT NULL,
@@ -227,13 +213,6 @@ AUTO_INCREMENT = 4,
 CHARACTER SET utf8mb4,
 COLLATE utf8mb4_unicode_ci;
 
-ALTER TABLE brakingpoint.tickets 
-  ADD CONSTRAINT tickets_betid_foreign FOREIGN KEY (betID)
-    REFERENCES brakingpoint.available_bets(id);
-
-ALTER TABLE brakingpoint.tickets 
-  ADD CONSTRAINT tickets_userid_foreign FOREIGN KEY (userID)
-    REFERENCES brakingpoint.users(userID);
 CREATE TABLE brakingpoint.available_bets (
   id BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT,
   title VARCHAR(255) NOT NULL,
