@@ -210,30 +210,42 @@ CHARACTER SET utf8,
 COLLATE utf8_hungarian_ci;
 
 
-CREATE TABLE IF NOT EXISTS brakingpoint.tickets (
-  ticketID INT(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE brakingpoint.tickets (
+  ticketID BIGINT(20) UNSIGNED NOT NULL,
   status VARCHAR(255) NOT NULL,
   debt INT(11) NOT NULL,
-  sum_odds DOUBLE NOT NULL,
+  odds DOUBLE(8, 2) NOT NULL,
   races VARCHAR(255) NOT NULL,
-  payment_date DATE DEFAULT NULL,
-  userID INT(11) NOT NULL,
-  PRIMARY KEY (ticketID),
-  FOREIGN KEY (userID) REFERENCES brakingpoint.users(userID)
+  userID BIGINT(20) UNSIGNED NOT NULL,
+  betID BIGINT(20) UNSIGNED NOT NULL,
+  created_at TIMESTAMP NULL DEFAULT NULL,
+  updated_at TIMESTAMP NULL DEFAULT NULL,
+  PRIMARY KEY (ticketID)
 )
 ENGINE = INNODB,
-CHARACTER SET utf8,
-COLLATE utf8_hungarian_ci;    
+AUTO_INCREMENT = 4,
+CHARACTER SET utf8mb4,
+COLLATE utf8mb4_unicode_ci;
 
+ALTER TABLE brakingpoint.tickets 
+  ADD CONSTRAINT tickets_betid_foreign FOREIGN KEY (betID)
+    REFERENCES brakingpoint.available_bets(id);
 
-CREATE TABLE IF NOT EXISTS brakingpoint.connection_available_bet_ticket (
-  connectionID INT(11) NOT NULL AUTO_INCREMENT,
-  available_betID INT(11) NOT NULL,
-  ticketID INT(11) NOT NULL,
-  PRIMARY KEY (connectionID),
-  FOREIGN KEY (available_betID) REFERENCES brakingpoint.available_bets(available_betID),
-  FOREIGN KEY (ticketID) REFERENCES brakingpoint.tickets(ticketID)
+ALTER TABLE brakingpoint.tickets 
+  ADD CONSTRAINT tickets_userid_foreign FOREIGN KEY (userID)
+    REFERENCES brakingpoint.users(userID);
+CREATE TABLE brakingpoint.available_bets (
+  id BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+  title VARCHAR(255) NOT NULL,
+  category VARCHAR(255) NOT NULL,
+  date DATE NOT NULL,
+  odds DOUBLE(8, 2) NOT NULL,
+  odds2 DOUBLE(8, 2) DEFAULT NULL,
+  status VARCHAR(255) NOT NULL,
+  created_at TIMESTAMP NULL DEFAULT NULL,
+  updated_at TIMESTAMP NULL DEFAULT NULL,
+  PRIMARY KEY (id)
 )
 ENGINE = INNODB,
-CHARACTER SET utf8,
-COLLATE utf8_hungarian_ci;
+CHARACTER SET utf8mb4,
+COLLATE utf8mb4_unicode_ci;
